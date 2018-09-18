@@ -8,5 +8,5 @@ Advanced Salesforce Integration with Google Calendar, YouTube Analytics, Google 
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
 </a>
 
-[YouTube Video Link](https://www.youtube.com/watch?v=nzVG3rn1ui0)
+[YouTube Video Link](https://www.youtube.com/watch?v=nzVG3rn1ui0&t=1s)
 
