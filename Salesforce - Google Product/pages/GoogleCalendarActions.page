@@ -1,0 +1,39 @@
+<apex:page controller="GoogleCalendarActionsController">
+  <apex:slds />
+    <apex:actionstatus id="statusCalList">
+        <apex:facet name="start">
+            <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb; height:100%;opacity:0.65;width:100%;">
+                <div class="waitingHolder" style="top: 100px; width: 91px;">
+                    <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                    <span class="waitingDescription">Loading...</span>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionstatus>
+  <apex:form id="theForm" >
+      <apex:pageMessages ></apex:pageMessages>
+      <apex:outputPanel >
+        <apex:pageBlock >
+            Calendar Title : &nbsp; &nbsp; <apex:inputText value="{!Summary}" /> <br/><br/>
+            <apex:commandButton value="Create New Calendar" action="{!doCreateNewCalendar}" status="statusCalList"
+                               reRender="theForm" />
+        </apex:pageBlock>
+      </apex:outputPanel>
+      <apex:pageBlock >
+          <apex:pageblockButtons location="top" >
+              <apex:commandButton value="List All Calendars" action="{!doListAllCalendar}" status="statusCalList"
+                                  reRender="theForm, thePanel" /> &nbsp; &nbsp; <br/>
+          </apex:pageblockButtons>
+          <apex:outputPanel rendered="{!isListCalendars}" id="thePanel" >
+                    {!allCalendars}
+              </apex:outputPanel>
+      </apex:pageBlock>
+      
+      <apex:pageBlock >
+          <apex:pageBlockButtons location="bottom" >
+              <apex:commandButton value="Create New Event" action="{!doCreateNewCalendarEvent}" status="statusCalList" reRender="theForm, thePanel"  />
+          </apex:pageBlockButtons>
+      </apex:pageBlock>
+      
+  </apex:form>
+</apex:page>

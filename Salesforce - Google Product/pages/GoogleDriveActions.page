@@ -1,0 +1,25 @@
+<apex:page controller="GoogleDriveAPI">
+    <apex:actionstatus id="statusCalList">
+        <apex:facet name="start">
+            <div class="waitingSearchDiv" id="el_loading" style="background-color: #fbfbfb; height:100%;opacity:0.65;width:100%;">
+                <div class="waitingHolder" style="top: 100px; width: 91px;">
+                    <img class="waitingImage" src="/img/loading.gif" title="Please Wait..." />
+                    <span class="waitingDescription">Loading...</span>
+                </div>
+            </div>
+        </apex:facet>
+    </apex:actionstatus>
+    <apex:slds />
+    <apex:form id="theForm">
+        <apex:pageMessages ></apex:pageMessages>
+        <apex:pageBlock >
+            {!allFiles}
+        </apex:pageBlock>
+        <apex:commandButton value="List All Files"
+                            styleClass="slds-p-top_xx-small slds-button slds-button_brand"
+                            action="{!doListAllFiles}" status="statusCalList" reRender="theForm" /><br/> <br/>
+        <apex:commandButton value="Test You Tube" styleClass="slds-p-top_xx-small slds-button slds-button_brand"
+                            action="{!doListAllYoutube}" status="statusCalList"
+                            reRender="theForm" />
+    </apex:form>
+</apex:page>
